@@ -1,0 +1,34 @@
+name: django_env
+channels:
+  - defaults
+dependencies:
+  - autopep8=1.5.4=py_0
+  - ca-certificates=2020.7.22=0
+  - certifi=2020.6.20=py38_0
+  - pip=20.2.2=py38_0
+  - pycodestyle=2.6.0=py_0
+  - setuptools=49.6.0=py38_1
+  - toml=0.10.1=py_0
+  - wheel=0.35.1=py_0
+  - pip:
+      - altgraph==0.17
+      - asgiref==3.2.10
+      - boto3==1.15.18
+      - botocore==1.18.18
+      - django==3.1.1
+      - django-crispy-forms==1.9.2
+      - django-storages==1.10.1
+      - future==0.18.2
+      - jmespath==0.10.0
+      - pefile==2019.4.18
+      - pillow==7.2.0
+      - pyinstaller==4.0
+      - pyinstaller-hooks-contrib==2020.8
+      - pylint-django==2.3.0
+      - pylint-plugin-utils==0.6
+      - python-dotenv==0.14.0
+      - pytz==2020.1
+      - pywin32-ctypes==0.2.0
+      - s3transfer==0.3.3
+      - sqlparse==0.3.1
+      - urllib3==1.25.10
