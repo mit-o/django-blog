@@ -12,6 +12,10 @@ def home(request):
     return render(request, 'blog/home.html', context)
 
 
+def about(request):
+    return render(request, 'blog/about.html', {'title': 'about'})
+
+
 class PostListView(ListView):
     model = Post
     template_name = 'blog/home.html'
@@ -70,5 +74,12 @@ class PostDeleteView(LoginRequiredMixin, UserPassesTestMixin, DeleteView):
         return False
 
 
-def about(request):
-    return render(request, 'blog/about.html', {'title': 'about'})
+class PostLatestView(ListView):
+    model = Post
+    template_name = 'blog/latest_posts.html'
+    context_object_name = 'posts'
+    paginate_by = 5
+
+    def get_queryset(self):
+        return Post.objects.all().order_by('-date_posted')[:10]
+        
