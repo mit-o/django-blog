@@ -133,3 +133,21 @@ a.article-title:hover {
 .account-heading {
   font-size: 2.5rem;
 }
+
+.btnlike {
+  background-color: transparent;
+  background-repeat: no-repeat;
+  border: none;
+  cursor: pointer;
+  overflow: hidden;
+  outline: none;
+  font-size: 1.5rem;
+}
+
+.far.fa-heart {
+  color: #fff;
+}
+
+.fas.fa-heart {
+  color: red;
+}
