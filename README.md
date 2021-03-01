@@ -1,10 +1,10 @@
 #### Django Blog
-My first django project created in October '20 by following a Corey Schafer's [django tutorial](https://www.youtube.com/playlist?list=PL-osiE80TeTtoQCKZ03TU5fNfx2UY6U4p).
+My first django project created in October '20.
 
 #### Setup and installations
 1. Install and activate your virtual environment with python 3.5+
 
-2. Install dependencies by running ```pip install -r requirements-dev.yml```
+2. Install dependencies by running ```pip install -r requirements-dev.txt```
 
 3. Create database with migrations by entering ```python manage.py migrate```
 
