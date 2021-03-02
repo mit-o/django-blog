@@ -5,11 +5,24 @@
             <img class="rounded-circle article-img" src="{{ post.author.profile.image.url }}" alt="profile image">
             <div class="media-body">
                 <div class="article-metadata">
-                    <a class="mr-2" href="{% url 'user-posts' post.author.username %}">{{ post.author }}</a>
-                    <small class="text-muted">{{ post.date_posted|date:"F d, Y" }}</small>
+                    <a class="mr-2" href="{% url 'blog:user-posts' post.author.username %}">{{ post.author }}</a>
+                    <small class="gold">{{ post.date_posted|date:"F d, Y" }}</small>
                 </div>
-                <h3><a class="article-title" href="{% url 'post-detail' post.id %}">{{ post.title }}</a></h3>
+                <h3><a class="article-title" href="{% url 'blog:post-detail' post.id %}">{{ post.title }}</a></h3>
                 <p class="article-content">{{ post.content }}</p>
+
+                <div class="media-footer d-flex align-items-center justify-content-end">
+                    <form action="{% url 'blog:like-post' %}" method="POST">
+                        {% csrf_token %}
+                        <input type='hidden' name='post_id' value="{{ post.id }}">
+                        {% if user not in post.liked.all %}
+                            <button class="btnlike px-2 py-1" type='submit'><i class="far fa-heart"></i></button>
+                        {% else %}
+                            <button class="btnlike px-2 py-1" type='submit'><i class="fas fa-heart"></i></button>
+                        {% endif %}
+                    </form>
+                    <strong>{{ post.liked.all.count }}</strong>
+                </div>
             </div>
         </article>
     {% endfor %}

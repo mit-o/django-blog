@@ -28,7 +28,7 @@ def like_post(request):
             else:
                 like.value='Like'
             like.save()
-    return redirect(request.META.get('HTTP_REFERER'))
+    return redirect('blog:blog-home')
 
 class PostListView(ListView):
     model = Post
@@ -52,11 +52,10 @@ class UserPostListView(ListView):
 class PostDetailView(DetailView):
     model = Post
 
-
 class PostCreateView(LoginRequiredMixin, CreateView):
     model = Post
     fields = ['title', 'content']
-
+    
     def form_valid(self, form):
         form.instance.author = self.request.user
         return super().form_valid(form)
@@ -65,6 +64,7 @@ class PostCreateView(LoginRequiredMixin, CreateView):
 class PostUpdateView(LoginRequiredMixin, UserPassesTestMixin, UpdateView):
     model = Post
     fields = ['title', 'content']
+
 
     def form_valid(self, form):
         form.instance.author = self.request.user
